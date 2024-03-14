@@ -19,6 +19,16 @@ License: For each use you must have a valid license purchased only from above li
 
 	<title>promiseLearning - Learning Management System</title>
 
+  <style type="text/css">
+
+    .authlogin-side-wrapper{
+      height: 100%;
+      width: 100%;
+      background-image: url({{ asset('upload/login.png') }});
+    }
+    
+  </style>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +63,7 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="card">
 							<div class="row">
                 <div class="col-md-4 pe-md-0">
-                  <div class="auth-side-wrapper">
+                  <div class="authlogin-side-wrapper">
 
                   </div>
                 </div>
