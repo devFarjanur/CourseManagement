@@ -94,32 +94,45 @@
 
 								<h6 class="card-title">Admin Change Password</h6>
 
-								<form method="POST" action="{{ route('admin.profile.store') }}" class="forms-sample" enctype="multipart/form-data">
+								<form method="POST" action="{{ route('admin.update.password') }}" class="forms-sample" enctype="multipart/form-data">
                 @csrf
 
 
 									<div class="mb-3">
-										<label for="exampleInputUsername1" class="form-label">Name</label>
-										<input type="text" name="name" class="form-control" id="name" autocomplete="off">
+										<label for="exampleInputUsername1" class="form-label">Old Password</label>
+										<input type="password" name="old_password" class="form-control @error('old_password') is-invaild @enderror" id="old_password" autocomplete="off">
+                                        @error('old_password')
+
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+
+                                        @enderror
 									</div>
-									<div class="mb-3">
-										<label for="email" class="form-label">Email address</label>
-										<input type="email" name="email" class="form-control" id="email">
+                                    <div class="mb-3">
+										<label for="exampleInputUsername1" class="form-label">New Password</label>
+										<input type="password" name="new_password" class="form-control @error('new_password') is-invaild @enderror" id="new_password" autocomplete="off">
+                                        @error('new_password')
+
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+
+                                        @enderror
 									</div>
-									<div class="mb-3">
-										<label for="phone" class="form-label">Phone</label>
-										<input type="text" name="phone" class="form-control" id="phone" autocomplete="off" >
+                                    <div class="mb-3">
+										<label for="exampleInputUsername1" class="form-label">Confrim New Password</label>
+										<input type="password" name="old_password" class="form-control @error('new_confrim_password') is-invaild @enderror" id="new_confrim_password" autocomplete="off">
+                                        @error('confrim_new_password')
+
+                                        <span class="text-danger">
+                                            {{ $message }}
+                                        </span>
+
+                                        @enderror
 									</div>
-                  <div class="mb-3">
-										<label for="photo" class="form-label">Photo</label>
-										<input name="photo" type="file" class="form-control" id="image" autocomplete="off" >
-                    
-									</div>
-                  <div class="mb-3">
-                  <img id="showImage" class="wd-70 rounded-circle" src="{{ (!empty ($profileData->photo)) ?
-                    url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg')  
-                    }}" alt="profile">
-									</div>
+
+									
               
 									<button type="submit" class="btn btn-primary me-2">Save Changes</button>
 								</form>
@@ -357,19 +370,5 @@
         </div>
 
 			</div>
-
-
-      <script type="text/javascript">
-        $(document).ready(function(){
-          $('#image').change(function(e){
-            var reader = new FileReader();
-            reader.onload = function(e){
-              $('#showImage').attr('src',e.target.result);
-            }
-            reader.readAsDataURL(e.target.files['0']);
-          });
-        });
-      </script>
-
 
 @endsection
