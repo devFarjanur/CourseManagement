@@ -28,7 +28,7 @@
             <div class="collapse" id="instructor">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="pages/email/inbox.html" class="nav-link">All Instructor</a>
+                  <a href="" class="nav-link">All Instructor</a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/email/read.html" class="nav-link">Add Instructor</a>
@@ -71,10 +71,10 @@
             <div class="collapse" id="course">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="pages/advanced-ui/cropper.html" class="nav-link">All Course</a>
+                  <a href="{{ route('admin.course') }}" class="nav-link">All Course</a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/advanced-ui/owl-carousel.html" class="nav-link">Add Course</a>
+                  <a href="{{ route('admin.add.course') }}" class="nav-link">Add Course</a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/advanced-ui/sortablejs.html" class="nav-link">Edit Course</a>

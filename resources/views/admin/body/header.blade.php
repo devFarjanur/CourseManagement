@@ -133,7 +133,7 @@
             @php
 
             $id = Auth::user()->id;
-            $data = App\Models\User::find($id);
+            $profileData = App\Models\User::find($id);
 
             @endphp
 

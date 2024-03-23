@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -71,40 +72,52 @@ class AdminController extends Controller
     } //  end method
 
 
-    public function AdminUpdatePassword(Request $request){
+    public function AdminUpdatePassword(Request $request)
+    {
         $request->validate([
             'old_password' => 'required',
-            'new_password' => 'required | confrimed'
+            'new_password' => 'required|confirmed',
         ]);
-
-
-        // match old password
-
-        if(!Hash::check($request->old_password, Auth::user()->password)){
+    
+        // Match old password
+        if (!Hash::check($request->old_password, auth::user()->password)) {
             $notification = array(
-                'message'=> 'Old Password does not match',
-                'alert-type'=> 'error'
+                'message' => 'Old Password does not match',
+                'alert-type' => 'error',
             );
-
+    
             return back()->with($notification);
         }
-        
-        // update the new password
-
-        $user = User::WhereId(auth()->user()->update([
-            'password'=> Hash::make($request->new_password)
-        ])); 
-        
+    
+        // Update the new password
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password),
+        ]);
+    
         $notification = array(
-            'message' => 'Password Change Successfully',
-            'alter-type' => 'success'
+            'message' => 'Password Changed Successfully',
+            'alert-type' => 'success',
         );
-
+    
         return back()->with($notification);
+    }  // end method
+    
 
 
-        
-    } //  end method
+    // course page controller 
+
+    public function AdminCourse(){
+        return view('admin.admin_course');
+    } // end method
+
+
+
+    public function AdminAddCourse(){
+        return view('admin.admin_add_course');
+    } // end method
+
+
+
 
 
 }
