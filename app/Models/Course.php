@@ -10,6 +10,7 @@ class Course extends Model
         'title',
         'description',
         'price',
+        'photo',
     ];
 
 

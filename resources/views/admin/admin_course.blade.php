@@ -5,7 +5,7 @@
 
 <div class="page-content">
 
-<div>
+<!-- <div>
     <div class="card">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
@@ -14,7 +14,15 @@
         <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<h1>All Courses</h1>
+<ul>
+    @foreach ($courses as $course)
+        <li>{{ $course->title }} - ${{ $course->price }}</li>
+    @endforeach
+</ul>
 
 
 @endsection
