@@ -124,7 +124,7 @@ class AdminController extends Controller
         $validatedInput = $request->validate([ // Rename to validatedInput
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'price' => 'nullable|numeric|min:0',
+            'price' => 'nullable|string',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -166,12 +166,12 @@ class AdminController extends Controller
         return redirect()->back()->with($notification);
     } // end method
 
+    public function AdminCourseShow(){
+        $courses = Course::all(); // Fetch all course
+        return view('admin.admin_course', compact('courses'));
+    }
 
-        // Handle photo upload (if uploaded)
-        // if ($request->hasFile('photo')) {
-        //     $photo = $request->file('photo');
-        //     $photoName = $photo->store('admin_images', 'upload/admin_images/'); // Store in 'course_images' disk with public visibility
-        //     $validatedInput['photo'] = $photoName; // Update validated data with photo path
-        // }
     
+
 }
+

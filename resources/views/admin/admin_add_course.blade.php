@@ -33,7 +33,7 @@
 
   <div class="mb-3">
     <label for="price">Price:</label>
-    <input type="number" step="0.01" class="form-control" id="price" name="price">
+    <input type="text" class="form-control" id="price" name="price">
   </div>
 
   <button type="submit" class="btn btn-primary mb-3">Create Course</button>

@@ -48,6 +48,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/course', [AdminController::class, 'AdminCourse'])->name('admin.course');
     Route::get('/admin/course/addcourse', [AdminController::class, 'AdminAddCourse'])->name('admin.add.course');
     Route::post('/admin/course/store', [AdminController::class,'AdminCourseStore'])->name('admin.course.store');
+    Route::get('/admin/course/show', [AdminController::class,'AdminCourseShow'])->name('admin.course.show');
 
 });  // End Admin group middleware
 

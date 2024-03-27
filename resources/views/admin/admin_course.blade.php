@@ -5,24 +5,13 @@
 
 <div class="page-content">
 
-<!-- <div>
-    <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-</div> -->
-
-
-<h1>All Courses</h1>
-<ul>
-    @foreach ($courses as $course)
-        <li>{{ $course->title }} - ${{ $course->price }}</li>
-    @endforeach
-</ul>
-
+@if ($courses->isEmpty())
+      <p>No courses found.</p>
+  @else
+      @foreach ($courses as $course)
+          <h1>{{ $course->name }}</h1>
+          <p>{{ $course->price }}</p>
+      @endforeach
+  @endif
 
 @endsection
