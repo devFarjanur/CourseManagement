@@ -13,13 +13,13 @@
         <ul class="nav">
           <li class="nav-item nav-category">Main</li>
           <li class="nav-item">
-            <a href="dashboard.html" class="nav-link">
+            <a class="nav-link" href="{{ route('admin.dashboard') }}">
               <i class="link-icon" data-feather="box"></i>
-              
               <span class="link-title">Dashboard</span>
-            </a>
+            </a> 
           </li>
-          <li class="nav-item">
+
+          <!-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#instructor" role="button" aria-expanded="false" aria-controls="instructor">
               <i class="link-icon" data-feather="user"></i>
               <span class="link-title">Instructor</span>
@@ -38,9 +38,9 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#student" role="button" aria-expanded="false" aria-controls="student">
               <i class="link-icon" data-feather="user"></i>
               <span class="link-title">Student</span>
@@ -59,29 +59,34 @@
                 </li>
               </ul>
             </div>
+          </li> -->
+
+
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.instructor') }}">
+              <i class="link-icon" data-feather="user"></i>
+              <span class="link-title">Instructor</span>
+            </a>
           </li>
+
+           
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.add.instructor') }}">
+              <i class="link-icon" data-feather="user"></i>
+              <span class="link-title">Add Instructor</span>
+            </a>
+          </li>
+
 
 
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#course" role="button" aria-expanded="false" aria-controls="course">
+            <a class="nav-link" href="{{ route('admin.course') }}">
               <i class="link-icon" data-feather="book"></i>
               <span class="link-title">Course</span>
-              <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-            <div class="collapse" id="course">
-              <ul class="nav sub-menu">
-                <li class="nav-item">
-                  <a href="{{ route('admin.course') }}" class="nav-link">All Course</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{ route('admin.add.course') }}" class="nav-link">Add Course</a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/advanced-ui/sortablejs.html" class="nav-link">Edit Course</a>
-                </li>
-              </ul>
-            </div>
           </li>
+
 
 
           <li class="nav-item">

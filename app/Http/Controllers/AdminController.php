@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
 use App\Models\Course;
+use App\Models\Instructor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -109,14 +110,14 @@ class AdminController extends Controller
     // course page controller 
 
     public function AdminCourse(){
-        $courses = Course::paginate(10);
-        return view('admin.admin_course');
+        $courses = Course::all();
+        return view('admin.course/admin_course',compact('courses'));
     } // end method
 
 
 
     public function AdminAddCourse(){
-        return view('admin.admin_add_course');
+        return view('admin.course/admin_add_course');
     } // end method
 
     public function AdminCourseStore(Request $request)
@@ -166,11 +167,59 @@ class AdminController extends Controller
         return redirect()->back()->with($notification);
     } // end method
 
-    public function AdminCourseShow(){
-        $courses = Course::all(); // Fetch all course
-        return view('admin.admin_course', compact('courses'));
-    }
+    // public function AdminCourseShow(){
+    //     $courses = Course::all();
+    //     return view('admin.admin_course',compact('courses'));
+    // }
 
+
+
+    // admin instructor
+
+
+    public function AdminInstructor(){
+        // $instructors = Instructor::all();
+        // return view('admin.instructor/admin_instructor',compact('instructors'));
+        return view('admin.instructor/admin_instructor');
+    } // end method
+
+    public function AdminAddInstructor(){
+        return view('admin.instructor/admin_add_instructor');
+    } // end method
+
+
+    public function AdminInstructorStore(Request $request)
+    {
+        $validatedInput = $request->validate([ // Rename to validatedInput
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'name' => 'required|string|max:255',
+            'title' => 'required|string',
+            'description' => 'required|string',
+        ]);
+
+
+        //Handle photo upload (if uploaded)
+
+        if ($request->file('photo')) {
+            $photo = $request->file('photo');
+            // @unlink(public_path('upload/admin_images/'.$data->photo));
+            $photoName = date('YmdHi').$photo->getClientOriginalName();
+            $photo->move(public_path('upload/admin_images'), $photoName);
+            $validatedInput['photo'] = $photoName;
+        }
+
+
+    
+        $instructor = Instructor::create($validatedInput);
+    
+        $notification = array(
+            'message' => 'Course Created Successfully',
+            'alter-type' => 'success'
+        );
+
+
+        return redirect()->back()->with($notification);
+    } // end method
     
 
 }

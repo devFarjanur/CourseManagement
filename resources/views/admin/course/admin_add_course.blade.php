@@ -5,7 +5,7 @@
 
 <div class="page-content">
 
-<h1>Add New Course</h1>
+<h1 class="card-title mb-3">Add Instructor</h1>
 
 <form method="POST" action=" {{ route('admin.course.store') }} " enctype="multipart/form-data">
   @csrf 
@@ -38,6 +38,9 @@
 
   <button type="submit" class="btn btn-primary mb-3">Create Course</button>
 </form>
+
+
+  </div>
 
 
 <script type="text/javascript">
