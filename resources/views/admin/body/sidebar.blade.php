@@ -70,16 +70,6 @@
             </a>
           </li>
 
-           
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.add.instructor') }}">
-              <i class="link-icon" data-feather="user"></i>
-              <span class="link-title">Add Instructor</span>
-            </a>
-          </li>
-
-
-
           <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.course') }}">
               <i class="link-icon" data-feather="book"></i>

@@ -41,7 +41,7 @@
     <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary mb-3">Create Course</button>
+  <button type="submit" class="btn btn-primary mb-3">Add Instructor</button>
 </form>
 
 </div>

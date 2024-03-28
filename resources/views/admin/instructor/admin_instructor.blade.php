@@ -2,24 +2,31 @@
 @section('admin')
 
 
+<div class="page-content">
+
+
 <div class=" mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
     <a href="{{ route('admin.add.instructor') }}" class="btn btn-primary">Add Instructor</a>
 </div>
 
-  <div class="row row-cols-2 row-cols-md-4">  @foreach($instructors as $instructor)
-      <div class="col mb-3">
-        <div class="card">
-          <img src="{{ asset('upload/admin_images/' . $instructor->photo) }}" class="card-img-top" height="200px" alt="...">
-          <div class="card-body">
+<div class="row row-cols-2 row-cols-md-4">
+  @foreach($instructors as $instructor)
+    <div class="col mb-3">
+      <div class="card h-100 d-flex flex-column"> <!-- Added d-flex and flex-column classes to make the card a flex container and align its child elements in a column -->
+        <img src="{{ asset('upload/admin_images/' . $instructor->photo) }}" class="card-img-top img-fluid" alt="..." style="height: 200px; object-fit: cover;">
+        <div class="card-body d-flex flex-column justify-content-between"> <!-- Added d-flex, flex-column, and justify-content-between classes to make the card body a flex container, align its child elements in a column, and distribute space between them -->
+          <div> <!-- Added a wrapper div for card content -->
             <h5 class="card-title">{{ $instructor->name }}</h5>
             <p class="card-text mb-3">{{ $instructor->title }}</p>
-            <a href="#" class="btn btn-primary d-flex justify-content-center align-items-center">Profile</a>
-
+          </div>
+          <div> <!-- Added a wrapper div for the button -->
+            <a href="#" class="btn btn-primary d-flex justify-content-center align-items-center mt-auto">Instructor Details</a> <!-- Added mt-auto class to push the button to the bottom -->
           </div>
         </div>
       </div>
-    @endforeach
-  </div>
+    </div>
+  @endforeach
+</div>
 </div>
 
 

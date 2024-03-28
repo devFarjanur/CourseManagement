@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
 });  // End Admin group middleware
+
+
+// user group middleware
+
+Route::middleware(['auth', 'role:user'])->group(function () {
+
+
+    Route::get('/course', [UserController::class, 'LayoutsCourse'])->name('layouts.course');
+    
+
+});  // End user group middleware
 
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');

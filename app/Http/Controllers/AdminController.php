@@ -165,12 +165,7 @@ class AdminController extends Controller
 
 
         return redirect()->back()->with($notification);
-    } // end method
-
-    // public function AdminCourseShow(){
-    //     $courses = Course::all();
-    //     return view('admin.admin_course',compact('courses'));
-    // }
+    } 
 
 
 
@@ -178,9 +173,9 @@ class AdminController extends Controller
 
 
     public function AdminInstructor(){
-        // $instructors = Instructor::all();
-        // return view('admin.instructor/admin_instructor',compact('instructors'));
-        return view('admin.instructor/admin_instructor');
+        $instructors = Instructor::all();
+        return view('admin.instructor/admin_instructor',compact('instructors'));
+        // return view('admin.instructor/admin_instructor');
     } // end method
 
     public function AdminAddInstructor(){
@@ -213,7 +208,7 @@ class AdminController extends Controller
         $instructor = Instructor::create($validatedInput);
     
         $notification = array(
-            'message' => 'Course Created Successfully',
+            'message' => 'Instructor Added Successfully',
             'alter-type' => 'success'
         );
 
